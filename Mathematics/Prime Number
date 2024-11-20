@@ -1,0 +1,27 @@
+(*  Question:
+Given a number n, determine whether it is a prime number or not. A prime number is a number greater than 1 that has no positive divisors other than 1 and itself.
+
+Examples :
+Input: n = 7
+Output: true
+Explanation: 7 has exactly two divisors: 1 and 7, making it a prime number.
+
+Input: n = 1
+Output: false
+Explanation: 1 has only one divisor (1 itself), which is not sufficient for it to be considered prime.
+ *)
+
+ 
+ Solution:
+class Solution{
+    static int isPrime(int N){
+        if(N==1)return 0;
+        for(int i=2;i*i<=N;i++){
+            if(N%i==0){
+                return 0;
+            }
+        }
+        return 1;
+    }
+}
+
