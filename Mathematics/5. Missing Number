@@ -1,0 +1,29 @@
+Ritu has all numbers from 1 to n in an array, and the arr of length is n-1 except for one number. 
+You have to return the missing number, Ritu doesn't have from 1 to n.
+
+Note: Don't use Sorting
+
+Examples:
+Input: n = 4, arr = [1,  4,  3]
+Output: 2     
+Explanation: Ritu doesn't have the number 2
+Input: n = 5, arr = [2,  5,  3,  1]
+Output: 4
+Explanation: Ritu doesn't have number 4 in her collection
+
+
+Solution: 
+class Solution {
+    public static int missingNumber(int n, int[] arr) {
+        int sum=0;
+        for(int i=1;i<=n;i++){
+            sum+=i;
+        }
+        int asum=0;
+        for(int i=0;i<n-1;i++){
+            asum+=arr[i];
+        }
+        return sum-asum;
+    }
+}
+  
