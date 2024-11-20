@@ -1,0 +1,40 @@
+https://www.geeksforgeeks.org/problems/largest-prime-factor2601/1?page=2&category=Mathematical&sortBy=submissions
+
+Q. Given a number N, the task is to find the largest prime factor of that number.
+
+Example 1:
+Input:
+N = 5
+Output:
+5
+Explanation:
+5 has 1 prime factor i.e 5 only.
+Example 2:
+
+Input:
+N = 24
+Output:
+3
+Explanation:
+24 has 2 prime factors 2 and 3 in which 3 is greater.
+
+
+Solution: 
+class Solution{
+    static long largestPrimeFactor(int N) {
+      
+        int max=1;
+        for(int i=2;i<=Math.sqrt(N);i++){
+            if(N%i==0){
+                max=i;
+                while(N%i==0){
+                N=N/i;
+                }
+            }
+        }
+        if(N>1){
+            max=Math.max(max,N);
+        }
+        return max;
+    }
+}
