@@ -1,0 +1,43 @@
+https://www.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1?page=1&category=Arrays&difficulty=Easy&sortBy=submissions
+Given an array arr[] containing only 0s, 1s, and 2s. Sort the array in ascending order.
+
+Examples:
+Input: arr[] = [0, 1, 2, 0, 1, 2]
+Output: [0, 0, 1, 1, 2, 2]
+Explanation: 0s 1s and 2s are segregated into ascending order.
+
+Input: arr[] = [0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1]
+Output: [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2]
+Explanation: 0s 1s and 2s are segregated into ascending order.
+
+
+Solution:
+class Solution {
+    public void swap(int arr[], int i, int j){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    // Function to sort an array of 0s, 1s, and 2s
+    public void sort012(int[] arr) {
+        // code here
+        int left=0,mid=0;
+        int right=arr.length-1;
+        
+        while(mid <= right){
+            if( arr[mid] == 0 ){
+                swap(arr, left, mid);
+                left++;
+                mid++;
+            }
+            else if(arr[mid] == 1){
+                mid++;
+            }
+            else{
+                swap(arr,mid,right);
+                right--;
+            }
+        }
+        
+    }
+}
