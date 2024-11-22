@@ -1,0 +1,31 @@
+https://www.geeksforgeeks.org/problems/equilibrium-point-1587115620/1?page=1&category=Arrays&difficulty=Easy&sortBy=submissions
+Given an array arr of non-negative numbers.
+The task is to find the first equilibrium point in an array. 
+The equilibrium point in an array is an index (or position) such that the sum of all elements before that index is the same as the sum of elements after it.
+
+Note: Return equilibrium point in 1-based indexing. Return -1 if no such point exists. 
+
+Examples:
+Input: arr[] = [1, 3, 5, 2, 2]
+Output: 3 
+Explanation: The equilibrium point is at position 3 as the sum of elements before it (1+3) = sum of elements after it (2+2). 
+
+Input: arr[] = [0, 1, 0]
+Output: 2
+Explanation: Since sum all the elements before 1 and after 1 are same, so index 2 is equillibrium.
+
+
+solution:
+class Solution {
+    // Function to find equilibrium point in the array.
+    public static int equilibriumPoint(int arr[]) {
+        int rsum = 0;
+        for(int i:arr) rsum += i;
+        int lsum = 0;
+        for(int i=0;i<arr.length;i++){
+            if(lsum == (rsum - lsum-arr[i])) return i+1;
+            lsum += arr[i];
+        }
+        return -1;
+    }
+}
