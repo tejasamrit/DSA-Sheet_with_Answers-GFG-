@@ -1,0 +1,40 @@
+https://www.geeksforgeeks.org/problems/find-missing-and-repeating2512/1?page=1&category=Arrays&difficulty=Easy&sortBy=submissions
+Given an unsorted array arr of positive integers.
+One number a from the set [1, 2,....,n] is missing and one number b occurs twice in the array. 
+Find numbers a and b.
+
+Note: The test cases are generated such that there always exists one missing and one repeating number within the range [1,n].
+
+Examples:
+Input: arr[] = [2, 2]
+Output: [2, 1]
+Explanation: Repeating number is 2 and smallest positive missing number is 1.
+
+Input: arr[] = [1, 3, 3] 
+Output: [3, 2]
+Explanation: Repeating number is 3 and smallest positive missing number is 2.
+
+
+Solution:
+class Solution {
+    // Function to find two elements in array
+    ArrayList<Integer> findTwoElement(int arr[]) {
+        ArrayList<Integer> rtn = new ArrayList<>();
+        boolean[] tmp = new boolean[arr.length];
+      
+        for(int i : arr){
+            if(tmp[i-1]){
+                rtn.add(i);   
+            }
+            tmp[i-1] = true;
+        }
+        
+        for (int i = 0; i<arr.length;i++){
+            if(!tmp[i]){
+                rtn.add(i+1);
+                break;
+            }
+        }
+        return rtn;
+    }
+}
