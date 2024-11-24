@@ -1,0 +1,40 @@
+https://www.geeksforgeeks.org/problems/merge-two-strings2736/1?page=1&category=Strings&difficulty=Basic&status=solved&sortBy=submissions
+Given two strings S1 and S2 as input, the task is to merge them alternatively.
+i.e. the first character of S1 then the first character of S2 and so on till the strings end.
+NOTE: Add the whole string if other string is empty.
+
+Example:
+Input:
+S1 = "Hello" S2 = "Bye"
+Output: HBeylelo
+Explanation: The characters of both the given strings are arranged alternatlively.
+
+
+Solution:
+class Solution 
+{ 
+    String merge(String s1, String s2)
+    { 
+        String ans="";
+        int i=0,j=0;
+        while(i<s1.length() && j<s2.length()){
+            ans+=s1.charAt(i);
+            ans+=s2.charAt(j);
+            i++;
+            j++;
+        }
+        while(i<s1.length()){
+            ans+=s1.charAt(i);
+         
+            i++;
+            
+        }
+        while(j<s2.length()){
+            
+            ans+=s2.charAt(j);
+            
+            j++;
+        }
+        return ans;
+    }
+} 
