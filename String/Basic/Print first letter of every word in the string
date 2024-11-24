@@ -1,0 +1,28 @@
+https://www.geeksforgeeks.org/problems/print-first-letter-of-every-word-in-the-string3632/1?page=1&category=Strings&difficulty=Basic&status=solved&sortBy=submissions
+Given a string S, the task is to create a string with the first letter of every word in the string.
+
+Example 1:
+Input: 
+S = "geeks for geeks"
+Output: gfg
+
+Example 2:
+Input: 
+S = "bad is good"
+Output: big
+
+
+Solution:
+class Solution {
+    String firstAlphabet(String S) {
+        String ans="";
+        ans=ans+S.charAt(0);
+        char ch=' ';
+        for(int i=1;i<S.length();i++){
+        if(S.charAt(i)==ch){
+             ans=ans+S.charAt(i+1);
+         }
+        }
+        return ans;
+    }
+};
