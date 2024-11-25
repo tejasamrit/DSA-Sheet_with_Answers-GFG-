@@ -1,0 +1,29 @@
+https://www.geeksforgeeks.org/problems/palindrome-string0817/1?page=1&category=Strings&difficulty=Easy&status=solved&sortBy=submissions
+You are given a string s. Your task is to determine if the string is a palindrome. A string is considered a palindrome if it reads the same forwards and backwards.
+
+Examples :
+Input: s = "abba"
+Output: true
+Explanation: "abba" reads the same forwards and backwards, so it is a palindrome.
+
+Input: s = "abc" 
+Output: false
+Explanation: "abc" does not read the same forwards and backwards, so it is not a palindrome.
+
+
+solution:
+class Solution {
+    int isPalindrome(String S) {
+        int i=0,j=S.length()-1;
+        while(i<=j){
+            if(S.charAt(i)==S.charAt(j)){
+                 i++;
+                 j--;
+            }
+            else{
+            return 0;
+            }
+        }
+        return 1;
+    }
+};
