@@ -1,0 +1,42 @@
+https://www.geeksforgeeks.org/problems/reverse-each-word-in-a-given-string1001/1?page=1&category=Strings&difficulty=Medium&status=solved&sortBy=submissions
+You are given a string s. 
+You need to reverse each word in it where the words are separated by spaces and return the modified string.
+
+Note: The string may contain leading or trailing spaces, or multiple spaces between two words. 
+The returned string should only have a single space separating the words, and no extra spaces should be included.
+
+Examples:
+Input: s = " i like this program very much "
+Output: "i ekil siht margorp yrev hcum"
+Explanation: The words are reversed as follows:
+"i" -> "i","like"->"ekil",
+"this"->"siht","program" -> "margorp",
+"very" -> "yrev","much" -> "hcum".
+
+Input: s = " pqr mno "
+Output: "rqp onm"
+Explanation: The words are reversed as follows:
+"pqr" -> "rqp" ,
+"mno" -> "onm"
+
+
+Solutoin:
+class Solution
+{
+   
+    String reverseWords(String S)
+    {
+        String s="", s1="";
+        for(int i=0;i<S.length();i++){
+            if(S.charAt(i)!='.'){
+                s=S.charAt(i)+s;
+            }
+            else{
+                s1+=s+".";
+                s="";
+            }
+        }
+        s1=s1+s;
+        return s1;
+    }
+}
