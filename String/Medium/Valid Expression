@@ -1,0 +1,55 @@
+https://www.geeksforgeeks.org/problems/valid-expression1025/1?page=1&category=Strings&difficulty=Medium&status=solved&sortBy=submissions
+Given a string s, composed of different combinations of '(' , ')', '{', '}', '[', ']', verify the validity of the arrangement.
+An input string is valid if:
+         1. Open brackets must be closed by the same type of brackets.
+         2. Open brackets must be closed in the correct order.
+
+Example 1:
+Input:
+S = ()[]{}
+Output: 1
+Explanation: The arrangement is valid, as both the conditions are followed here.
+
+Example 2:
+Input:
+S = ())({}
+Output: 0
+Explanation: Arrangement is not valid, as for the bold closing bracket in ())({}, there is no opening bracket of similar kind, before it.
+
+
+solution:
+
+
+//User function Template for Java
+class Solution 
+{ 
+    boolean valid(String s) 
+    { 
+        Stack<Character>st=new Stack<>();
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(ch=='(' || ch=='[' || ch=='{'){
+                st.push(ch);
+            }
+            else if(ch==')'){
+                if(st.isEmpty())return false;
+                else if(st.peek()!='(')
+                return false;
+                else st.pop();
+            }
+            else if(ch=='}'){
+                if(st.isEmpty())return false;
+                else if(st.peek()!='{')
+                return false;
+                else st.pop();
+            }
+            else if(ch==']'){
+                if(st.isEmpty())return false;
+                else if(st.peek()!='[')
+                return false;
+                else st.pop();
+            }
+        }
+        return true;
+    }
+} 
