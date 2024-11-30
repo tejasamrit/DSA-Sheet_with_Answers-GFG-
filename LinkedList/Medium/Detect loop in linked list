@@ -1,0 +1,20 @@
+Given the head of a singly linked list, the task is to check if the linked list has a loop.
+A loop means that the last node of the linked list is connected back to a node in the same list.  
+So if the next of the last node is null. then there is no loop.
+
+Note: You need to return a boolean value true if there is a loop, otherwise false.
+
+class Solution {
+    public static boolean detectLoop(Node head){
+        Node slow=head,fast=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast){
+            return true;
+        }
+        }
+        
+       return false; 
+    }
+}
